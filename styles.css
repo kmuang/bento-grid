@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #111827;
+    --text-muted: #6b7280;
+    --card-bg: #ffffff;
+
+    /* Premium Gradients */
+    --primary-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    /* Purple */
+    --accent-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    /* Gold/Orange */
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    --radius: 2rem;
+    /* More rounded premium feel */
+    --spacing: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing);
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.header {
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing);
+    grid-auto-rows: minmax(180px, auto);
+}
+
+.bento-item {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Typography Utilities */
+h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.text-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+/* Specific Card Styles */
+
+/* 1. Large Feature Card */
+.card-feature {
+    background: #fffbf0;
+    /* Light yellow tint */
+}
+
+.card-feature h2 {
+    color: #1f2937;
+}
+
+.card-feature .highlight {
+    color: #d97706;
+}
+
+/* 2. Schedule Card */
+.card-schedule {
+    background: #fdf2f8;
+    /* Light pink tint */
+}
+
+.active-time {
+    background: #fbcfe8;
+    color: #be185d;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-block;
+}
+
+/* 3. Social Growth */
+.card-growth .stat-number {
+    color: #7c3aed;
+}
+
+/* 4. Consistency */
+.card-consistency {
+    background: #fff7ed;
+    /* Light orange tint */
+}
+
+.dot-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.dot.checked {
+    background: #f97316;
+}
+
+.dot.unchecked {
+    background: #fed7aa;
+}
+
+/* 5. Manage Accounts */
+.card-accounts {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+}
+
+.icon-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.icon-bubble {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+/* 6. Create Post */
+.card-create {
+    background: #fef3c7;
+}
+
+.btn-create {
+    background: #d97706;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: auto;
+    width: fit-content;
+    transition: transform 0.2s;
+}
+
+.btn-create:hover {
+    transform: scale(1.05);
+}
+
+/* 7. Follower Goal */
+.card-goal {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.card-goal .text-sub {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Utilities */
+.content-center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.content-between {
+    justify-content: space-between;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.profile-stack {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 1rem;
+}
+
+.profile-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: #ddd;
+    margin-left: -15px;
+    object-fit: cover;
+}
+
+/* Graph Bars */
+.graph-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.graph-bar {
+    width: 14%;
+    background: #e5e7eb;
+    border-radius: 8px;
+}
+
+.graph-bar.fill {
+    background: #8b5cf6;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .col-span-2 {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        /* 4x3 Grid (Total 12 units) */
+        grid-template-rows: repeat(3, minmax(220px, auto));
+    }
+
+    .col-span-1 {
+        grid-column: span 1;
+    }
+
+    .col-span-2 {
+        grid-column: span 2;
+    }
+
+    .row-span-2 {
+        grid-row: span 2;
+    }
+}
