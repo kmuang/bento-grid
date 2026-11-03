@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Post - Bento Grid Social Kit</title>
+    <link rel="shortcut icon" href="img/logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <div class="container create-post-page">
+        <a href="index.html" class="back-link">&larr; Back to Dashboard</a>
+
+        <header class="header" style="margin-bottom: 1.5rem; text-align: left;">
+            <h1 style="font-size: 2.25rem;">Prepare a Post Request</h1>
+            <p>Write your post and send a request through the configured form service.</p>
+        </header>
+
+        <div class="create-post-grid">
+            <article class="bento-item card-create">
+                <form class="create-post-form" id="post-form" action="https://formspree.io/f/mljebbre" method="POST">
+                    <div class="form-group">
+                        <label for="post-content">Post content</label>
+                        <textarea id="post-content" name="content" placeholder="Give me 5 tips to grow..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <span class="form-label">Requested platform</span>
+                        <div class="platform-row">
+                            <label class="platform-chip"><input type="checkbox" name="platforms[]" value="Instagram" checked> Instagram</label>
+                            <label class="platform-chip"><input type="checkbox" name="platforms[]" value="X / Twitter"> X / Twitter</label>
+                            <label class="platform-chip"><input type="checkbox" name="platforms[]" value="LinkedIn"> LinkedIn</label>
+                            <label class="platform-chip"><input type="checkbox" name="platforms[]" value="TikTok"> TikTok</label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="post-date">Preferred publish date &amp; time</label>
+                        <input type="datetime-local" id="post-date" name="scheduled_at">
+                    </div>
+
+                    <input type="hidden" name="_subject" value="New post from Bento Grid Social Kit">
+
+                    <p class="form-note">This sends a request for review; it does not publish or schedule a post on social media.</p>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-create">Send post request</button>
+                        <button type="button" class="btn-secondary" id="save-draft">Download draft file</button>
+                    </div>
+                    <p class="form-status" id="draft-status" role="status" aria-live="polite"></p>
+                </form>
+            </article>
+
+            <article class="bento-item card-goal content-center">
+                <p class="text-sub">Example posting suggestion</p>
+                <div class="stat-number" style="font-size: 2rem;">Mon, 9:00 AM</div>
+                <p class="text-sub" style="margin-top: 1rem;">Sample data only. This demo does not connect to social accounts or analytics.</p>
+            </article>
+        </div>
+    </div>
+    <script src="dashboard.js" defer></script>
+</body>
+
+</html>

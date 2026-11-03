@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bento Grid Social Kit</title>
+    <link rel="shortcut icon" href="img/logo.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Social media, made easier.</h1>
+            <p>Plan content and prepare post requests in one place.</p>
+        </header>
+
+        <p class="data-notice">Prototype dashboard · all figures and posting times are sample data.</p>
+
+        <main class="bento-grid">
+            <article class="bento-item card-feature col-span-2 row-span-2 content-center">
+                <h2>Get your next post <span class="highlight">ready to go.</span></h2>
+                <p class="text-sub">Draft content and send a request to your team.</p>
+                <a href="create-post.html" class="btn-create">Prepare a post <span aria-hidden="true">✨</span></a>
+            </article>
+
+            <article class="bento-item card-schedule row-span-2">
+                <h3>Sample posting times</h3>
+                <div class="graph-container" aria-hidden="true">
+                    <div class="graph-bar" style="height: 40%"></div>
+                    <div class="graph-bar" style="height: 70%"></div>
+                    <div class="graph-bar fill" style="height: 100%"></div>
+                    <div class="graph-bar" style="height: 50%"></div>
+                    <div class="graph-bar" style="height: 80%"></div>
+                </div>
+                <div class="schedule-detail">
+                    <p class="text-sub">Example suggested time:</p>
+                    <div class="schedule-controls">
+                        <span class="active-time" id="suggested-time" aria-live="polite">Mon, 9:00 AM</span>
+                        <button class="text-button" type="button" id="next-suggestion">Next suggestion</button>
+                    </div>
+                </div>
+            </article>
+
+            <article class="bento-item card-growth content-center">
+                <div class="stat-number">+56%</div>
+                <p class="text-sub">Sample audience growth</p>
+                <div class="profile-stack" aria-hidden="true">
+                    <img src="https://i.pravatar.cc/100?img=1" class="profile-img" alt="">
+                    <img src="https://i.pravatar.cc/100?img=5" class="profile-img" alt="">
+                    <img src="https://i.pravatar.cc/100?img=8" class="profile-img" alt="">
+                </div>
+                <button class="text-button" type="button" aria-expanded="false" aria-controls="growth-detail" id="growth-toggle">About this metric</button>
+                <p class="card-detail" id="growth-detail" hidden>Sample dashboard metric. Connect an account to see your own analytics.</p>
+            </article>
+
+            <article class="bento-item card-consistency">
+                <h3>Example weekly posting plan</h3>
+                <div class="dot-row" role="group" aria-label="Demo posts marked for this week">
+                    <button class="dot checked" type="button" role="checkbox" aria-checked="true" aria-label="Monday post"></button>
+                    <button class="dot checked" type="button" role="checkbox" aria-checked="true" aria-label="Tuesday post"></button>
+                    <button class="dot checked" type="button" role="checkbox" aria-checked="true" aria-label="Wednesday post"></button>
+                    <button class="dot unchecked" type="button" role="checkbox" aria-checked="false" aria-label="Thursday post"></button>
+                </div>
+                <p class="text-sub card-footnote" id="schedule-count" aria-live="polite">3 of 4 demo posts marked</p>
+            </article>
+
+            <article class="bento-item card-create">
+                <h3>Start with a prompt</h3>
+                <div class="prompt-preview">
+                    <label class="text-sub" for="content-prompt">Your drafting prompt</label>
+                    <textarea id="content-prompt" rows="2">Give me 5 tips to grow my audience</textarea>
+                    <p class="text-sub prompt-hint">No AI generation: this opens an editable post draft with your prompt.</p>
+                    <a href="create-post.html" class="btn-create" id="use-prompt">Use this prompt</a>
+                </div>
+            </article>
+
+            <article class="bento-item card-goal col-span-2">
+                <div class="goal-content">
+                    <div class="goal-summary">
+                        <p class="text-sub">Sample follower count</p>
+                        <div class="stat-number">20,642</div>
+                        <p class="text-sub">Illustrative data only</p>
+                    </div>
+                    <div class="goal-chart-wrap">
+                        <div class="goal-chart" role="group" aria-label="Illustrative weekly follower trend">
+                            <button class="goal-bar" type="button" style="height: 35%" data-growth="35" aria-label="Week 1: 35 percent"></button>
+                            <button class="goal-bar" type="button" style="height: 48%" data-growth="48" aria-label="Week 2: 48 percent"></button>
+                            <button class="goal-bar" type="button" style="height: 42%" data-growth="42" aria-label="Week 3: 42 percent"></button>
+                            <button class="goal-bar" type="button" style="height: 63%" data-growth="63" aria-label="Week 4: 63 percent"></button>
+                            <button class="goal-bar" type="button" style="height: 74%" data-growth="74" aria-label="Week 5: 74 percent"></button>
+                            <button class="goal-bar" type="button" style="height: 100%" data-growth="100" aria-label="Week 6: 100 percent"></button>
+                        </div>
+                        <p class="goal-detail" id="goal-detail" aria-live="polite">Select a bar to explore weekly growth.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="bento-item card-accounts content-center">
+                <div class="icon-row account-options" role="group" aria-label="Select accounts">
+                    <button class="icon-bubble account-option is-selected" type="button" aria-pressed="true" aria-label="Business account">💼</button>
+                    <button class="icon-bubble account-option is-selected" type="button" aria-pressed="true" aria-label="Personal account">📱</button>
+                </div>
+                <h3>Business &amp; Personal</h3>
+                <p class="text-sub" id="account-summary" aria-live="polite">2 demo account types selected · not connected</p>
+            </article>
+        </main>
+    </div>
+    <script src="dashboard.js" defer></script>
+</body>
+
+</html>

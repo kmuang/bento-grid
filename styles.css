@@ -1,0 +1,689 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #111827;
+    --text-muted: #6b7280;
+    --card-bg: #ffffff;
+
+    /* Premium Gradients */
+    --primary-gradient: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+    /* Purple */
+    --accent-gradient: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+    /* Gold/Orange */
+
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+    --radius: 2rem;
+    /* More rounded premium feel */
+    --spacing: 1.5rem;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.5;
+    display: flex;
+    justify-content: center;
+    padding: var(--spacing);
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+}
+
+.header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.5rem;
+    background: var(--primary-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.header p {
+    color: var(--text-muted);
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.data-notice {
+    width: fit-content;
+    margin: 0 auto 1.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 99px;
+    background: #ede9fe;
+    color: #5b21b6;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing);
+    grid-auto-rows: minmax(180px, auto);
+}
+
+.bento-item {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.bento-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* Typography Utilities */
+h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+}
+
+.text-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+/* Specific Card Styles */
+
+/* 1. Large Feature Card */
+.card-feature {
+    background: #fffbf0;
+    /* Light yellow tint */
+}
+
+.card-feature h2 {
+    color: #1f2937;
+}
+
+.card-feature .highlight {
+    color: #d97706;
+}
+
+.card-feature .text-sub {
+    max-width: 28rem;
+}
+
+.card-feature .btn-create {
+    margin-top: 1.5rem;
+}
+
+/* 2. Schedule Card */
+.card-schedule {
+    background: #fdf2f8;
+    /* Light pink tint */
+}
+
+.schedule-detail {
+    display: grid;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+.schedule-controls {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.active-time {
+    background: #fbcfe8;
+    color: #be185d;
+    padding: 4px 12px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-size: 0.875rem;
+    display: inline-block;
+}
+
+/* 3. Social Growth */
+.card-growth .stat-number {
+    color: #7c3aed;
+}
+
+.card-growth .text-button {
+    margin-top: 1rem;
+}
+
+/* 4. Consistency */
+.card-consistency {
+    background: #fff7ed;
+    /* Light orange tint */
+}
+
+.dot-row {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.dot {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    transition: transform 0.2s, background-color 0.2s;
+}
+
+.dot.checked {
+    background: #f97316;
+}
+
+.dot.unchecked {
+    background: #fed7aa;
+}
+
+.dot:hover {
+    transform: scale(1.12);
+}
+
+.dot:focus-visible,
+.goal-bar:focus-visible,
+.icon-bubble:focus-visible,
+.text-button:focus-visible {
+    outline: 3px solid #1f2937;
+    outline-offset: 3px;
+}
+
+.card-footnote {
+    margin-top: auto;
+}
+
+/* 5. Manage Accounts */
+.card-accounts {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+}
+
+.icon-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.icon-bubble {
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.account-option {
+    background: #f3f4f6;
+    opacity: 0.55;
+}
+
+.account-option:first-child {
+    background: #fef08a;
+}
+
+.account-option:last-child {
+    background: #bae6fd;
+}
+
+.account-option.is-selected {
+    opacity: 1;
+    box-shadow: 0 0 0 3px white, 0 0 0 5px #7c3aed;
+}
+
+.account-option:hover {
+    transform: translateY(-3px);
+}
+
+/* 6. Create Post */
+.card-create {
+    background: #fef3c7;
+}
+
+.btn-create {
+    background: #d97706;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: auto;
+    width: fit-content;
+    transition: transform 0.2s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-create:hover {
+    transform: scale(1.05);
+}
+
+.btn-create:focus-visible {
+    outline: 3px solid #1f2937;
+    outline-offset: 3px;
+}
+
+.prompt-preview {
+    margin-top: auto;
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    background: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.prompt-preview label {
+    font-size: 0.875rem;
+}
+
+.prompt-hint {
+    font-size: 0.8rem;
+}
+
+.prompt-preview textarea {
+    width: 100%;
+    min-height: 4rem;
+    padding: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    font: inherit;
+    font-size: 0.875rem;
+    resize: vertical;
+}
+
+.prompt-preview textarea:focus-visible {
+    outline: 3px solid #d97706;
+    outline-offset: 2px;
+}
+
+.prompt-preview .btn-create {
+    margin: 0;
+    text-align: center;
+}
+
+.text-button {
+    width: fit-content;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: #6d28d9;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.card-detail {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+/* 7. Follower Goal */
+.card-goal {
+    background: var(--primary-gradient);
+    color: white;
+}
+
+.goal-content {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 1.5rem;
+    height: 100%;
+}
+
+.goal-summary .stat-number {
+    font-size: 2.5rem;
+}
+
+.goal-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 0.5rem;
+    width: 100%;
+    height: 100px;
+}
+
+.goal-chart-wrap {
+    width: min(45%, 240px);
+}
+
+.goal-bar {
+    flex: 1;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    border-radius: 8px 8px 2px 2px;
+    background: rgb(255 255 255 / 0.35);
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.goal-bar:hover,
+.goal-bar.is-selected {
+    opacity: 1;
+    transform: scaleX(1.08);
+    background: white;
+}
+
+.goal-detail {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    text-align: right;
+}
+
+.goal-bar:last-child {
+    background: white;
+}
+
+.card-goal .text-sub {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* Utilities */
+.content-center {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.content-between {
+    justify-content: space-between;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.profile-stack {
+    display: flex;
+    margin-left: 15px;
+    margin-top: 1rem;
+}
+
+.profile-img {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid white;
+    background: #ddd;
+    margin-left: -15px;
+    object-fit: cover;
+}
+
+/* Graph Bars */
+.graph-container {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    height: 100px;
+    width: 100%;
+    margin-top: 1.5rem;
+}
+
+.graph-bar {
+    width: 14%;
+    background: #e5e7eb;
+    border-radius: 8px;
+}
+
+.graph-bar.fill {
+    background: #8b5cf6;
+}
+
+/* Responsive Grid */
+@media (min-width: 768px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .col-span-2 {
+        grid-column: span 2;
+    }
+}
+
+@media (min-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, minmax(220px, auto));
+    }
+
+    .col-span-1 {
+        grid-column: span 1;
+    }
+
+    .col-span-2 {
+        grid-column: span 2;
+    }
+
+    .row-span-2 {
+        grid-row: span 2;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    .header {
+        margin-bottom: 1.5rem;
+    }
+
+    .header h1 {
+        font-size: clamp(2rem, 9vw, 2.75rem);
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .bento-grid {
+        gap: 1rem;
+        grid-auto-rows: minmax(160px, auto);
+    }
+
+    .bento-item {
+        padding: 1.5rem;
+    }
+
+    .goal-content {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .goal-chart {
+        height: 64px;
+    }
+
+    .goal-chart-wrap {
+        width: 100%;
+    }
+}
+
+/* Create Post Page */
+.create-post-page {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+}
+
+.back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    width: fit-content;
+}
+
+.back-link:hover {
+    color: var(--text-color);
+}
+
+.create-post-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    font-family: inherit;
+    font-size: 1rem;
+    padding: 0.9rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid #e5e7eb;
+    background: #f9fafb;
+    resize: vertical;
+}
+
+.form-group textarea {
+    min-height: 140px;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #d97706;
+}
+
+.platform-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.platform-chip {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1rem;
+    border-radius: 99px;
+    background: #f3f4f6;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.platform-chip input {
+    accent-color: #d97706;
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.form-note,
+.form-status {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.form-status[data-state="error"] {
+    color: #b91c1c;
+}
+
+.form-status[data-state="success"] {
+    color: #166534;
+}
+
+.btn-secondary {
+    background: white;
+    color: var(--text-color);
+    border: 1px solid #e5e7eb;
+    padding: 0.75rem 1.5rem;
+    border-radius: 99px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .create-post-grid {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: var(--spacing);
+        align-items: start;
+    }
+}
